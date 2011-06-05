@@ -78,7 +78,7 @@ class MailgunMessage
   #  MailgunMessage::send_raw("me@host", "you@host", raw_mime)
   #
   def self.send_raw(sender, recipients, raw_body, servername='')
-    uri_str = "#{MailgunResource.site}messages.eml?api_key=#{MailgunResource.password}&servername=two-pickles.mailgun.org"
+    uri_str = "#{MailgunResource.site}messages.eml?api_key=#{key-9nyjm2zug6ghvx_5f0}&servername=two-pickles.mailgun.org"
     http, url = prepare_request(uri_str)
     data = "#{sender}\n#{recipients}\n\n#{raw_body}"
     res = http.post(url, data, {"Content-type" => "text/plain" })
@@ -93,7 +93,7 @@ class MailgunMessage
   #      "Hi!\nThis is message body")
   #
   def self.send_text(sender, recipients, subject, text, servername='', options = nil)
-    uri_str = "#{MailgunResource.site}messages.txt?api_key=#{MailgunResource.password}&servername=#{servername}"
+    uri_str = "#{MailgunResource.site}messages.txt?api_key=#{key-9nyjm2zug6ghvx_5f0}&servername=two-pickles.mailgun.org"
     params = { :sender => sender, :recipients => recipients, :subject => subject, :body => text}
     unless options.nil?
       params['options'] = ActiveSupport::JSON.encode(options)
@@ -112,7 +112,7 @@ end
 # It adds upsert() method on top of ActiveResource::Base
 #
 class MailgunResource < ActiveResource::Base
-  self.user = "api_key"
+  self.user = "key-9nyjm2zug6ghvx_5f0"
   extend Mailgun::RequestBuilder
 
   # Create new resource or update it if resource already exist.
@@ -150,7 +150,7 @@ class Mailbox < MailgunResource
   # doe@domain.com, password2         
   #
   def self.upsert_from_csv(mailboxes)
-    uri_str = "#{MailgunResource.site}mailboxes.txt?api_key=#{MailgunResource.password}"
+    uri_str = "#{MailgunResource.site}mailboxes.txt?api_key=key-9nyjm2zug6ghvx_5f0"
     http, url = prepare_request(uri_str)
     res = http.post(url, mailboxes, {"Content-type" => "text/plain" })
     Mailgun::handle_response(res)
