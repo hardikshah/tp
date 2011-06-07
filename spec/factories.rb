@@ -17,6 +17,7 @@ Factory.define :post do |post|
   post.city_id      1
   post.active       true
   post.association  :user
+  post.is_tradable  :is_tradable
 end
 
 Factory.define :trade do |trade|

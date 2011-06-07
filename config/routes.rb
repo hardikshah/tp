@@ -1,6 +1,10 @@
 Twopickles::Application.routes.draw do
 
 
+  resources :comments
+
+  resources :trial_statuses
+
   get "post_category_relationships/create"
 
   get "post_category_relationships/destroy"

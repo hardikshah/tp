@@ -12,15 +12,16 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  active          :boolean
+#  is_tradable     :boolean
 #  email           :string(255)
 #  activation_hash :string(255)
 #  activated_at    :datetime
-#
+#  
 
 class Post < ActiveRecord::Base
   include EncryptionMethods
 
-  attr_accessible :title, :description, :trade_for, 
+  attr_accessible :title, :description,:is_tradable, :trade_for, 
                   :email, :city_id, :post_images_attributes
   attr_accessible :category_ids
   attr_accessible :community_ids
@@ -50,8 +51,10 @@ class Post < ActiveRecord::Base
   validates :email, :presence => true, :if => :nonregistered_post?
   validates :city_id, :presence => true
   validates :category_ids, :category_count => true
+  validates :is_tradable,:presence => true
 
   scope :active, where(:active => true)
+  
   default_scope :order => 'posts.created_at DESC'
   
   before_create :set_activation

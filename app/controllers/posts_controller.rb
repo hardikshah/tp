@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @states = State.all
     @cities = City.all
+    @is_tradable = Tradable.all
     @goods = Category.find_all_by_category_type("Goods")
     @services = Category.find_all_by_category_type("Services")
     2.times { @post.post_images.build }
@@ -89,6 +90,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @states = State.all
     @cities = City.all
+    @is_tradable = Tradable.all
     @goods = Category.find_all_by_category_type("Goods")
     @services = Category.find_all_by_category_type("Services")
   end
