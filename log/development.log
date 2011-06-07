@@ -1626,3 +1626,482 @@ Migrating to AddPostCommunityRelationshipsTable (20110512005435)
   [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_community_id')[0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110223044027)
+Migrating to AddEmailUniquenessIndex (20110223045944)
+Migrating to AddPasswordToUsers (20110223051936)
+Migrating to AddSaltToUsers (20110223052534)
+Migrating to AddActivatedBooleanToUsers (20110225025407)
+Migrating to AddActivationHashToUsers (20110225050620)
+Migrating to AddActivatedDateToUsers (20110225051304)
+Migrating to AddAdminToUsers (20110226080604)
+Migrating to CreatePosts (20110227182533)
+Migrating to AddActiveBooleanToPosts (20110227182819)
+Migrating to CreateCities (20110301021034)
+Migrating to CreateStates (20110301021055)
+Migrating to RemoveStateIdFromPosts (20110301023021)
+Migrating to AddDefaultValueToActiveColumn (20110301034301)
+Migrating to ChangeEmailAddressColumnInPosts (20110302003015)
+Migrating to AddActivationHashToPosts (20110302024758)
+Migrating to CreateTrades (20110302053951)
+Migrating to RenameDescriptionColumnToContentInTrade (20110302055208)
+Migrating to AddActivatedAtColumnToTrades (20110302061550)
+Migrating to CreateTradeMessages (20110303034043)
+Migrating to CreatePostImages (20110303043949)
+Migrating to AddPaperclipToPostImages (20110303044055)
+Migrating to CreateCommunities (20110310040343)
+Migrating to CreateCommunityImages (20110310040609)
+Migrating to AddPaperclipToCommunityImages (20110310040654)
+Migrating to ChangeCommunityRenameActiveAtColumn (20110311131251)
+Migrating to AddActivationHashToCommunity (20110314011614)
+Migrating to CreateUserCommunityRelationships (20110315202222)
+Migrating to CreatePostCategoryRelationships (20110315232013)
+Migrating to CreateCategories (20110403213612)
+Migrating to DropPostCategoryRelationshipTable (20110407040605)
+Migrating to CreatePostCategoriesTable (20110407041606)
+Migrating to AddCityToCommunities (20110418020347)
+Migrating to AddMembershipTypeToCommunities (20110420032940)
+Migrating to AddPostCommunityRelationshipsTable (20110512005435)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_categories_on_category_type')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories_posts")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("cities")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("communities")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("community_images")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("post_community_relationships")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id_and_community_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_post_community_relationships_on_community_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("post_images")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_posts_on_user_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_posts_on_city_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("states")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("trade_messages")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_trade_messages_on_trade_id')
+  [1m[36mSQL (1.7ms)[0m  [1mPRAGMA index_list("trades")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_trades_on_user_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_trades_on_post_id')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("user_community_relationships")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_user_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_user_community_relationships_on_user_id_and_community_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_community_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (19.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.7ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.0ms)[0m  CREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "category_type" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("categories")[0m
+  [1m[35mSQL (6.7ms)[0m  CREATE INDEX "index_categories_on_category_type" ON "categories" ("category_type")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.9ms)[0m  CREATE TABLE "categories_posts" ("post_id" integer, "category_id" integer) 
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.6ms)[0m  CREATE TABLE "cities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "state_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.4ms)[0m  CREATE TABLE "communities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "active" boolean, "url" varchar(255), "created_at" datetime, "updated_at" datetime, "activated_at" datetime, "city_id" integer, "membership_type" varchar(255)) 
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.4ms)[0m  CREATE TABLE "community_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "community_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime) 
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.5ms)[0m  CREATE TABLE "post_community_relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "community_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("post_community_relationships")[0m
+  [1m[35mSQL (11.1ms)[0m  CREATE INDEX "index_post_community_relationships_on_community_id" ON "post_community_relationships" ("community_id")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("post_community_relationships")[0m
+  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_post_community_relationships_on_community_id')
+  [1m[36mSQL (8.2ms)[0m  [1mCREATE UNIQUE INDEX "index_post_community_relationships_on_post_id_and_community_id" ON "post_community_relationships" ("post_id", "community_id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("post_community_relationships")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id_and_community_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_post_community_relationships_on_community_id')
+  [1m[36mSQL (8.8ms)[0m  [1mCREATE INDEX "index_post_community_relationships_on_post_id" ON "post_community_relationships" ("post_id")[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (9.5ms)[0m  [1mCREATE TABLE "post_images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime) [0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (12.1ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" varchar(255), "trade_for" varchar(255), "city_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "active" boolean DEFAULT 'f', "email" varchar(255), "activation_hash" varchar(255), "activated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("posts")
+  [1m[36mSQL (7.1ms)[0m  [1mCREATE INDEX "index_posts_on_city_id" ON "posts" ("city_id")[0m
+  [1m[35mSQL (0.4ms)[0m  PRAGMA index_list("posts")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_posts_on_city_id')[0m
+  [1m[35mSQL (7.3ms)[0m  CREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.6ms)[0m  CREATE TABLE "states" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "abbreviation" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.4ms)[0m  CREATE TABLE "trade_messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "trade_id" integer, "message" varchar(255), "from_trader" boolean, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("trade_messages")[0m
+  [1m[35mSQL (9.2ms)[0m  CREATE INDEX "index_trade_messages_on_trade_id" ON "trade_messages" ("trade_id")
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.6ms)[0m  CREATE TABLE "trades" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "user_id" integer, "email" varchar(255), "poster_read_flag" boolean, "trader_read_flag" boolean, "active" boolean DEFAULT 'f', "activation_hash" varchar(255), "created_at" datetime, "updated_at" datetime, "content" varchar(255), "activated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("trades")[0m
+  [1m[35mSQL (7.1ms)[0m  CREATE INDEX "index_trades_on_post_id" ON "trades" ("post_id")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("trades")[0m
+  [1m[35mSQL (0.5ms)[0m  PRAGMA index_info('index_trades_on_post_id')
+  [1m[36mSQL (7.9ms)[0m  [1mCREATE INDEX "index_trades_on_user_id" ON "trades" ("user_id")[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (10.9ms)[0m  [1mCREATE TABLE "user_community_relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "community_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("user_community_relationships")
+  [1m[36mSQL (12.4ms)[0m  [1mCREATE INDEX "index_user_community_relationships_on_community_id" ON "user_community_relationships" ("community_id")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("user_community_relationships")
+  [1m[36mSQL (0.5ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_community_id')[0m
+  [1m[35mSQL (7.4ms)[0m  CREATE UNIQUE INDEX "index_user_community_relationships_on_user_id_and_community_id" ON "user_community_relationships" ("user_id", "community_id")
+  [1m[36mSQL (0.8ms)[0m  [1mPRAGMA index_list("user_community_relationships")[0m
+  [1m[35mSQL (0.7ms)[0m  PRAGMA index_info('index_user_community_relationships_on_user_id_and_community_id')
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_community_id')[0m
+  [1m[35mSQL (8.6ms)[0m  CREATE INDEX "index_user_community_relationships_on_user_id" ON "user_community_relationships" ("user_id")
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (11.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "active" boolean DEFAULT 'f', "activation_hash" varchar(255), "activated_at" datetime, "admin" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (6.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (11.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110512005435')[0m
+  [1m[35mSQL (7.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110226080604')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110302024758')[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110227182533')
+  [1m[36mSQL (6.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110302055208')[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110225050620')
+  [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110301021034')[0m
+  [1m[35mSQL (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110311131251')
+  [1m[36mSQL (7.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110302053951')[0m
+  [1m[35mSQL (8.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110225025407')
+  [1m[36mSQL (8.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110227182819')[0m
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110310040654')
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110407040605')[0m
+  [1m[35mSQL (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110303034043')
+  [1m[36mSQL (8.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110403213612')[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110407041606')
+  [1m[36mSQL (7.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110314011614')[0m
+  [1m[35mSQL (8.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110302061550')
+  [1m[36mSQL (8.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110303044055')[0m
+  [1m[35mSQL (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110303043949')
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110310040609')[0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110223045944')
+  [1m[36mSQL (7.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110315232013')[0m
+  [1m[35mSQL (7.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110420032940')
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110302003015')[0m
+  [1m[35mSQL (8.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110223051936')
+  [1m[36mSQL (8.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110418020347')[0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110223052534')
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110223044027')[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110310040343')
+  [1m[36mSQL (6.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110301021055')[0m
+  [1m[35mSQL (8.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110315202222')
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110301023021')[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110225051304')
+  [1m[36mSQL (7.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110301034301')[0m
+  [1m[36mSQL (2.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110223044027)
+Migrating to AddEmailUniquenessIndex (20110223045944)
+Migrating to AddPasswordToUsers (20110223051936)
+Migrating to AddSaltToUsers (20110223052534)
+Migrating to AddActivatedBooleanToUsers (20110225025407)
+Migrating to AddActivationHashToUsers (20110225050620)
+Migrating to AddActivatedDateToUsers (20110225051304)
+Migrating to AddAdminToUsers (20110226080604)
+Migrating to CreatePosts (20110227182533)
+Migrating to AddActiveBooleanToPosts (20110227182819)
+Migrating to CreateCities (20110301021034)
+Migrating to CreateStates (20110301021055)
+Migrating to RemoveStateIdFromPosts (20110301023021)
+Migrating to AddDefaultValueToActiveColumn (20110301034301)
+Migrating to ChangeEmailAddressColumnInPosts (20110302003015)
+Migrating to AddActivationHashToPosts (20110302024758)
+Migrating to CreateTrades (20110302053951)
+Migrating to RenameDescriptionColumnToContentInTrade (20110302055208)
+Migrating to AddActivatedAtColumnToTrades (20110302061550)
+Migrating to CreateTradeMessages (20110303034043)
+Migrating to CreatePostImages (20110303043949)
+Migrating to AddPaperclipToPostImages (20110303044055)
+Migrating to CreateCommunities (20110310040343)
+Migrating to CreateCommunityImages (20110310040609)
+Migrating to AddPaperclipToCommunityImages (20110310040654)
+Migrating to ChangeCommunityRenameActiveAtColumn (20110311131251)
+Migrating to AddActivationHashToCommunity (20110314011614)
+Migrating to CreateUserCommunityRelationships (20110315202222)
+Migrating to CreatePostCategoryRelationships (20110315232013)
+Migrating to CreateCategories (20110403213612)
+Migrating to DropPostCategoryRelationshipTable (20110407040605)
+Migrating to CreatePostCategoriesTable (20110407041606)
+Migrating to AddCityToCommunities (20110418020347)
+Migrating to AddMembershipTypeToCommunities (20110420032940)
+Migrating to AddPostCommunityRelationshipsTable (20110512005435)
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_categories_on_category_type')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories_posts")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("cities")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("communities")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("community_images")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("post_community_relationships")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id_and_community_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_post_community_relationships_on_community_id')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("post_images")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_posts_on_user_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_posts_on_city_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("states")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("trade_messages")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_trade_messages_on_trade_id')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("trades")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_trades_on_user_id')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_trades_on_post_id')[0m
+  [1m[35mSQL (2.3ms)[0m  PRAGMA index_list("user_community_relationships")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_user_id')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_user_community_relationships_on_user_id_and_community_id')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_community_id')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (2.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110223044027)
+Migrating to AddEmailUniquenessIndex (20110223045944)
+Migrating to AddPasswordToUsers (20110223051936)
+Migrating to AddSaltToUsers (20110223052534)
+Migrating to AddActivatedBooleanToUsers (20110225025407)
+Migrating to AddActivationHashToUsers (20110225050620)
+Migrating to AddActivatedDateToUsers (20110225051304)
+Migrating to AddAdminToUsers (20110226080604)
+Migrating to CreatePosts (20110227182533)
+Migrating to AddActiveBooleanToPosts (20110227182819)
+Migrating to CreateCities (20110301021034)
+Migrating to CreateStates (20110301021055)
+Migrating to RemoveStateIdFromPosts (20110301023021)
+Migrating to AddDefaultValueToActiveColumn (20110301034301)
+Migrating to ChangeEmailAddressColumnInPosts (20110302003015)
+Migrating to AddActivationHashToPosts (20110302024758)
+Migrating to CreateTrades (20110302053951)
+Migrating to RenameDescriptionColumnToContentInTrade (20110302055208)
+Migrating to AddActivatedAtColumnToTrades (20110302061550)
+Migrating to CreateTradeMessages (20110303034043)
+Migrating to CreatePostImages (20110303043949)
+Migrating to AddPaperclipToPostImages (20110303044055)
+Migrating to CreateCommunities (20110310040343)
+Migrating to CreateCommunityImages (20110310040609)
+Migrating to AddPaperclipToCommunityImages (20110310040654)
+Migrating to ChangeCommunityRenameActiveAtColumn (20110311131251)
+Migrating to AddActivationHashToCommunity (20110314011614)
+Migrating to CreateUserCommunityRelationships (20110315202222)
+Migrating to CreatePostCategoryRelationships (20110315232013)
+Migrating to CreateCategories (20110403213612)
+Migrating to DropPostCategoryRelationshipTable (20110407040605)
+Migrating to CreatePostCategoriesTable (20110407041606)
+Migrating to AddCityToCommunities (20110418020347)
+Migrating to AddMembershipTypeToCommunities (20110420032940)
+Migrating to AddPostCommunityRelationshipsTable (20110512005435)
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("categories")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_categories_on_category_type')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("categories_posts")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("cities")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("communities")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("community_images")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("post_community_relationships")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id_and_community_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_post_community_relationships_on_community_id')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_post_community_relationships_on_post_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("post_images")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("posts")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_posts_on_user_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_posts_on_city_id')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("states")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("trade_messages")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_trade_messages_on_trade_id')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("trades")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_trades_on_user_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_trades_on_post_id')[0m
+  [1m[35mSQL (2.7ms)[0m  PRAGMA index_list("user_community_relationships")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_user_id')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_user_community_relationships_on_user_id_and_community_id')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_user_community_relationships_on_community_id')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-06 21:06:12 -0400
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.haml (11.3ms)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (338.4ms)
+Rendered layouts/_footer.html.haml (15.5ms)
+Rendered pages/home.html.haml within layouts/application (453.9ms)
+Completed 200 OK in 578ms (Views: 573.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-06-06 21:06:21 -0400
+  Processing by PostsController#new as HTML
+  [1m[35mState Load (0.8ms)[0m  SELECT "states".* FROM "states" ORDER BY states.name ASC
+  [1m[36mCity Load (0.8ms)[0m  [1mSELECT "cities".* FROM "cities" ORDER BY cities.name ASC[0m
+  [1m[35mCategory Load (1.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."category_type" = 'Goods'
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."category_type" = 'Services'[0m
+Rendered shared/_error_messages.html.haml (7.7ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 1 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 2 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 3 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 4 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 5 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 6 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 7 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 8 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 9 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 10 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 11 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 12 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 13 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 14 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 15 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 16 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (2.5ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 17 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 18 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 19 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 20 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 21 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 22 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 23 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 24 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 25 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (3.6ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 26 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 27 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 28 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 29 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 30 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 31 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 32 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 33 AND ("categories_posts".post_id = NULL ) LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories"."id" FROM "categories" INNER JOIN "categories_posts" ON "categories".id = "categories_posts".category_id WHERE "categories"."id" = 34 AND ("categories_posts".post_id = NULL ) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered posts/_post_form.html.haml (1726.7ms)
+Rendered layouts/_stylesheets.html.haml (11.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (21.2ms)
+Rendered layouts/_footer.html.haml (18.9ms)
+Rendered posts/new.html.haml within layouts/application (1838.0ms)
+Completed 200 OK in 2955ms (Views: 2422.2ms | ActiveRecord: 22.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2011-06-06 21:06:54 -0400
+  Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zZYlP0Y9+2aA5a+8xvJPGq1272LOkygZbZCs+VAd3gA=", "post"=>{"title"=>"a", "description"=>"a", "trade_for"=>"a", "email"=>"hardik1447@yahoo.co.in", "city_id"=>"3", "category_ids"=>["15"]}, "state_id"=>"1", "commit"=>"Create Post"}
+  [1m[35mUser Load (9.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCategory Load (4.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = 15 LIMIT 1[0m
+  [1m[35mAREL (1.4ms)[0m  INSERT INTO "posts" ("title", "description", "trade_for", "city_id", "user_id", "created_at", "updated_at", "active", "email", "activation_hash", "activated_at") VALUES ('a', 'a', 'a', 3, NULL, '2011-06-07 01:06:55.009347', '2011-06-07 01:06:55.009347', 'f', 'hardik1447@yahoo.co.in', 'b19254ba6c0b5053c843c82dbd42f9b62ed3ff006194a938b0a241d4b8b68d8b', NULL)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories_posts" ("post_id", "category_id") VALUES (15, 15)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 740ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-06 21:06:55 -0400
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.haml (8.8ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (249.2ms)
+Rendered layouts/_footer.html.haml (10.7ms)
+Rendered pages/home.html.haml within layouts/application (299.2ms)
+Completed 200 OK in 317ms (Views: 316.0ms | ActiveRecord: 16.0ms)

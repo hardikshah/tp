@@ -112,7 +112,6 @@ DEPENDENCIES
   haml
   paperclip (~> 2.3)
   rails (= 3.0.4)
-  rake (= 0.8.7)
   rspec (= 2.5.0)
   rspec-rails (= 2.5.0)
   spork (= 0.9.0.rc3)
