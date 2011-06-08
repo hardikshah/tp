@@ -3299,3 +3299,29 @@ ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for in
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.1ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (49.4ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (68.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Jun 07 21:51:45 -0400 2011
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.haml (9.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (273.3ms)
+Rendered layouts/_footer.html.haml (20.7ms)
+Rendered pages/home.html.haml within layouts/application (354.4ms)
+Completed 200 OK in 397ms (Views: 395.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Jun 07 21:51:49 -0400 2011
+  Processing by PostsController#new as HTML
+  [1m[35mState Load (0.6ms)[0m  SELECT "states".* FROM "states" ORDER BY states.name ASC
+  [1m[36mCity Load (0.8ms)[0m  [1mSELECT "cities".* FROM "cities" ORDER BY cities.name ASC[0m
+Completed   in 233ms
+
+ArgumentError (Unknown validator: 'Tradable'):
+  app/models/tradable.rb:2
+  app/controllers/posts_controller.rb:22:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (169.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (184.9ms)
