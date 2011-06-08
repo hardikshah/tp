@@ -3520,3 +3520,30 @@ ArgumentError (Unknown key(s): is_tradable):
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (179.6ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (194.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Jun 07 22:17:24 -0400 2011
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.haml (24.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_header.html.haml (293.0ms)
+Rendered layouts/_footer.html.haml (37.6ms)
+Rendered pages/home.html.haml within layouts/application (437.3ms)
+Completed 200 OK in 476ms (Views: 473.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Jun 07 22:17:27 -0400 2011
+  Processing by PostsController#new as HTML
+  [1m[36mState Load (0.6ms)[0m  [1mSELECT "states".* FROM "states" ORDER BY states.name ASC[0m
+  [1m[35mCity Load (1.1ms)[0m  SELECT "cities".* FROM "cities" ORDER BY cities.name ASC
+  [1m[36mTradable Load (0.6ms)[0m  [1mSELECT "tradables".* FROM "tradables"[0m
+SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"
+Completed   in 477ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"):
+  app/controllers/posts_controller.rb:22:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (8.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (83.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (115.6ms)
