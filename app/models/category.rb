@@ -21,14 +21,15 @@ class Category < ActiveRecord::Base
                     :uniqueness   => { :case_sensitive => false }
   validates :description, :presence => true,
                           :length   => { :maximum => 100 }
+  validate :is_tradable
   validates :category_type, :presence => true
   validate :check_category_type
+  
 
 
   def check_category_type
     errors.add(:base, "Category type must be valid") unless     
       (self.category_type == "Goods" || self.category_type == "Services")
   end
-
-
+ 
 end

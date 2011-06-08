@@ -3404,3 +3404,69 @@ ArgumentError (Unknown key(s): is_tradable):
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.9ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (72.9ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (101.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Jun 07 21:58:34 -0400 2011
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.haml (149.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (140.3ms)
+Rendered layouts/_footer.html.haml (18.1ms)
+Rendered pages/home.html.haml within layouts/application (350.6ms)
+Completed 200 OK in 389ms (Views: 387.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Jun 07 21:58:38 -0400 2011
+  Processing by PostsController#new as HTML
+  [1m[35mState Load (0.6ms)[0m  SELECT "states".* FROM "states" ORDER BY states.name ASC
+  [1m[36mCity Load (0.9ms)[0m  [1mSELECT "cities".* FROM "cities" ORDER BY cities.name ASC[0m
+  [1m[35mTradable Load (0.5ms)[0m  SELECT "tradables".* FROM "tradables"
+SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"
+Completed   in 351ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"):
+  app/controllers/posts_controller.rb:22:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (36.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (53.2ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at Tue Jun 07 21:58:51 -0400 2011
+  Processing by PostsController#new as HTML
+  [1m[36mState Load (0.6ms)[0m  [1mSELECT "states".* FROM "states" ORDER BY states.name ASC[0m
+  [1m[35mCity Load (0.8ms)[0m  SELECT "cities".* FROM "cities" ORDER BY cities.name ASC
+  [1m[36mTradable Load (0.5ms)[0m  [1mSELECT "tradables".* FROM "tradables"[0m
+SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"
+Completed   in 369ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"):
+  app/controllers/posts_controller.rb:22:in `new'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (38.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (54.9ms)
+
+
+Started GET "/posts" for 127.0.0.1 at Tue Jun 07 21:58:59 -0400 2011
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (2.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."active" = 't' ORDER BY posts.created_at DESC LIMIT 30 OFFSET 0
+Rendered posts/_post.html.haml (3.2ms)
+Rendered posts/index.html.haml within layouts/application (12.7ms)
+Completed   in 187ms
+
+ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for indentation, but the rest of the document was indented using 1 tab.):
+    3: .description
+    4: 	= post.description
+    5: .is_tradable
+    6:         = post.is_tradable
+    7: .trade_for
+    8: 	= post.trade_for
+    9: .location
+  app/views/posts/_post.html.haml:6
+  app/views/posts/index.html.haml:3:in `_app_views_posts_index_html_haml___1003819001__613615128_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (44.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (61.6ms)
