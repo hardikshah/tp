@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :description
+      t.boolean :is_tradable
       t.string :trade_for
       t.integer :city_id
       t.integer :state_id
