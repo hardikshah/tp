@@ -55,6 +55,7 @@ class Post < ActiveRecord::Base
   validates :is_tradable,:presence => true
 
   scope :active, where(:active => true)
+  scope :is_tradable , where(:is_tradable => true)
   
   default_scope :order => 'posts.created_at DESC'
   
