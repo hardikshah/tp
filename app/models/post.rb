@@ -28,6 +28,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :city
+  belongs_to :tradable
   has_many :trades, :dependent => :destroy
 
   has_many :traders,  :through => :trades,
