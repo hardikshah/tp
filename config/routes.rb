@@ -3,6 +3,8 @@ Twopickles::Application.routes.draw do
 
  
 
+  
+
   get "post_category_relationships/create"
 
   get "post_category_relationships/destroy"
