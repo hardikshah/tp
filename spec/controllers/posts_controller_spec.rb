@@ -28,6 +28,12 @@ describe PostsController do
       get :new
       response.should have_selector("textarea[name='post[description]']")
     end
+
+#edit
+    it "should have a is_tradable field" do
+       get :new
+       response.should have_selector("input[name='post[is_tradable]']"+"[type='text']")
+    end
     it "should have a trade for field" do
       get :new
       response.should have_selector("input[name='post[trade_for]']"+
@@ -140,6 +146,17 @@ describe PostsController do
             response.should render_template('new')
           end          
         end
+        # describe "for missing is_tradable" do
+         # it "should not create a post" do
+         #   lambda do
+         #     post :create, :post => @attr.merge({ :is_tradable => "" })
+         #   end.should_not change(Post, :count)
+         # end
+        #  it "should render the home page" do
+        #    post :create, :post => @attr.merge({ :is_tradable => "" })
+       #     response.should render_template('new')
+       #   end          
+       # end
         describe "for missing city" do
           it "should not create a post" do
             lambda do

@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20110607222256) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_tradable"
     t.boolean  "active",          :default => false
     t.string   "email"
     t.string   "activation_hash"
