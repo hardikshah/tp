@@ -3682,3 +3682,173 @@ ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for in
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (27.0ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-06-09 18:30:04 -0400
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.haml (4.9ms)
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (9.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (509.6ms)
+Rendered layouts/_footer.html.haml (13.2ms)
+Rendered pages/home.html.haml within layouts/application (556.1ms)
+Completed 200 OK in 563ms (Views: 551.9ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2011-06-09 18:30:08 -0400
+  Processing by PostsController#search as HTML
+  [1m[35mPost Load (35.0ms)[0m  SELECT "posts".* FROM "posts" ORDER BY posts.created_at DESC
+Rendered posts/_post.html.haml (3.1ms)
+Rendered posts/search.html.haml within layouts/application (214.1ms)
+Completed   in 569ms
+
+ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for indentation, but the rest of the document was indented using 1 tab.):
+    3: .description
+    4: 	= post.description
+    5: .is_tradable
+    6:         = post.is_tradable
+    7: .trade_for
+    8: 	= post.trade_for
+    9: .location
+  app/views/posts/_post.html.haml:6
+  app/views/posts/search.html.haml:11:in `_app_views_posts_search_html_haml__151441878_83719930__801584294'
+
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.3ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-06-09 18:30:24 -0400
+  Processing by PostsController#new as HTML
+  [1m[36mState Load (0.5ms)[0m  [1mSELECT "states".* FROM "states" ORDER BY states.name ASC[0m
+  [1m[35mCity Load (0.5ms)[0m  SELECT "cities".* FROM "cities" ORDER BY cities.name ASC
+  [1m[36mTradable Load (0.5ms)[0m  [1mSELECT "tradables".* FROM "tradables"[0m
+SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"
+Completed   in 324ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tradables: SELECT "tradables".* FROM "tradables"):
+  app/controllers/posts_controller.rb:22:in `new'
+
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.6ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.3ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-06-09 18:30:32 -0400
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (3.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."active" = 't' ORDER BY posts.created_at DESC LIMIT 30 OFFSET 0
+Rendered posts/_post.html.haml (1.6ms)
+Rendered posts/index.html.haml within layouts/application (5.6ms)
+Completed   in 207ms
+
+ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for indentation, but the rest of the document was indented using 1 tab.):
+    3: .description
+    4: 	= post.description
+    5: .is_tradable
+    6:         = post.is_tradable
+    7: .trade_for
+    8: 	= post.trade_for
+    9: .location
+  app/views/posts/_post.html.haml:6
+  app/views/posts/index.html.haml:3:in `_app_views_posts_index_html_haml___600840277_77617710__801584294'
+
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.3ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (56.5ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2011-06-09 18:30:44 -0400
+  Processing by UsersController#new as HTML
+Rendered shared/_error_messages.html.haml (4.2ms)
+Rendered layouts/_stylesheets.html.haml (3.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_header.html.haml (59.0ms)
+Rendered layouts/_footer.html.haml (6.9ms)
+Rendered users/new.html.haml within layouts/application (109.4ms)
+Completed 200 OK in 277ms (Views: 118.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2011-06-09 18:30:49 -0400
+  Processing by SessionsController#new as HTML
+Rendered layouts/_stylesheets.html.haml (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_header.html.haml (136.3ms)
+Rendered layouts/_footer.html.haml (5.0ms)
+Rendered sessions/new.html.haml within layouts/application (166.3ms)
+Completed 200 OK in 179ms (Views: 177.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2011-06-09 18:30:52 -0400
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DoWt2IhxvFKmlzU3QDxGJOWGM1ca0wXCLYBErWgn1mo=", "session"=>{"email"=>"hardikshah@gatech.edu", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'hardikshah@gatech.edu' LIMIT 1[0m
+Rendered layouts/_stylesheets.html.haml (4.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.haml (9.6ms)
+Rendered layouts/_footer.html.haml (4.8ms)
+Rendered sessions/new.html.haml within layouts/application (38.7ms)
+Completed 200 OK in 216ms (Views: 44.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2011-06-09 18:31:12 -0400
+  Processing by PostsController#search as HTML
+  [1m[35mPost Load (7.4ms)[0m  SELECT "posts".* FROM "posts" ORDER BY posts.created_at DESC
+Rendered posts/_post.html.haml (1.7ms)
+Rendered posts/search.html.haml within layouts/application (10.6ms)
+Completed   in 245ms
+
+ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for indentation, but the rest of the document was indented using 1 tab.):
+    3: .description
+    4: 	= post.description
+    5: .is_tradable
+    6:         = post.is_tradable
+    7: .trade_for
+    8: 	= post.trade_for
+    9: .location
+  app/views/posts/_post.html.haml:6
+  app/views/posts/search.html.haml:11:in `_app_views_posts_search_html_haml__151441878_83753720__801584294'
+
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (16.9ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.8ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2011-06-09 18:31:19 -0400
+  Processing by PagesController#about as HTML
+Rendered layouts/_stylesheets.html.haml (11.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_header.html.haml (214.0ms)
+Rendered layouts/_footer.html.haml (5.5ms)
+Rendered pages/about.html.haml within layouts/application (274.1ms)
+Completed 200 OK in 291ms (Views: 289.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search" for 127.0.0.1 at 2011-06-09 18:31:24 -0400
+  Processing by PostsController#search as HTML
+  [1m[36mPost Load (6.6ms)[0m  [1mSELECT "posts".* FROM "posts" ORDER BY posts.created_at DESC[0m
+Rendered posts/_post.html.haml (1.6ms)
+Rendered posts/search.html.haml within layouts/application (10.7ms)
+Completed   in 169ms
+
+ActionView::Template::Error (Inconsistent indentation: 8 spaces were used for indentation, but the rest of the document was indented using 1 tab.):
+    3: .description
+    4: 	= post.description
+    5: .is_tradable
+    6:         = post.is_tradable
+    7: .trade_for
+    8: 	= post.trade_for
+    9: .location
+  app/views/posts/_post.html.haml:6
+  app/views/posts/search.html.haml:11:in `_app_views_posts_search_html_haml__151441878_85261250__801584294'
+
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (15.0ms)
+Rendered rake/ruby/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.9ms)

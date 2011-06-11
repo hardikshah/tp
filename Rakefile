@@ -2,6 +2,7 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
-require 'rake' , '0.8.7'
+require 'rake' , '0.9.2'
+require 'rake/dsl_definition'
 
 Twopickles::Application.load_tasks
